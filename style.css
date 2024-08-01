@@ -1,0 +1,458 @@
+@font-face {
+    font-family: 'Ubuntu';
+    font-display: swap;
+    font-weight: 400, 500, 700;
+    src: url(assets/fonts/Ubuntu-Regular.ttf) format('truetype'),
+         url(assets/fonts/Ubuntu-Medium.ttf) format('truetype'),
+         url(assets/fonts/Ubuntu-Bold.ttf) format('truetype');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'ubuntu';
+}
+:root{
+    --Marine-blue: hsl(213, 96%, 18%);
+    --Purplish-blue: hsl(243, 100%, 62%);
+    --Pastel-blue: hsl(228, 100%, 84%);
+    --Light-blue: hsl(206, 94%, 87%);
+    --Strawberry-red: hsl(354, 84%, 57%);
+
+    --Cool-gray: hsl(231, 11%, 63%);
+    --Light-gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+}
+section{
+    width: 100%;
+    background-color: var(--Magnolia);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container{
+    width: 900px;
+    background-color: var(--White);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+}
+.leftContainer{
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: url(assets/images/bg-sidebar-desktop.svg) no-repeat center center / cover;
+}
+.stepDiv{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 5px;
+    height: 45px;
+}
+.stepNumber{
+    height: 33px;
+    width: 33px;
+    border: 1px solid var(--White);
+    border-radius: 50%;
+    color: var(--White);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stepNumber.active{
+    background-color: var(--White);
+    color: black;
+}
+.textDiv{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.textDiv p{
+    font-size: 13px;
+    color: var(--Cool-gray);
+}
+.textDiv h5{
+    color: var(--White);
+    letter-spacing: 2px;
+}
+.stepContainer{
+    padding: 30px 75px 15px 90px;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    display: none;
+    
+}
+.stepContainer h1{
+    color: var(--Marine-blue);
+    font-weight: 700;
+    font-size: 30px;
+}
+.stepContainer p{
+    color: var(--Cool-gray);
+    margin-top: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.stepOneLabels{
+    margin-top: 25px;
+}
+.stepOneLabels label{
+    color: var(--Marine-blue);
+    font-weight: 500;
+}
+.stepOneLabels input{
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--Marine-blue);
+}
+.stepOneLabels input.active{
+    border-color: var(--Strawberry-red);
+}
+.errorMessage{
+    color: var(--Strawberry-red);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -15px;
+    display: none;
+}
+form input{
+    width: 100%;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 7px;
+    border: 1.3px solid var(--Cool-gray);
+}
+form input::placeholder{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--Cool-gray);
+}
+.step2Header{
+    position: relative;
+}
+.errorPopUp{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    display: none;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--White);
+    border: 1px solid var(--Strawberry-red);
+    border-radius: 10px;
+    text-align: center; 
+}
+.errorPopUp p{
+    color: var(--Strawberry-red);
+    font-weight: 600;
+    margin: 0;
+}
+.errorPopUp.active{
+display: flex;
+animation: showErrorPopUp 1s ease-in-out;
+}
+@keyframes showErrorPopUp {
+    0%{opacity: 0;top: -50px;}
+    100%{opacity: 1;top: 40px;}  
+}
+.plansDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.plan{
+    margin-top: 35px;
+    width: 140px;
+    padding: 15px 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--Light-gray);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.plan:hover{
+    border-color: var(--Purplish-blue);
+    transition: 0.5s ease-in-out;
+
+}
+.plan.active{
+    border-color: var(--Purplish-blue);
+    background-color: var(--Magnolia);
+}
+.plan input{
+   display: none;
+   pointer-events: none;
+}
+.plan img{
+    width: 35px;
+    height: 35px;
+}
+.typeAndPriceDiv{
+    margin-top: 45px;
+}
+.typeAndPriceDiv h4{
+    color: var(--Marine-blue);
+}
+.typeAndPriceDiv p{
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--Cool-gray);
+}
+.plan .monthlyPrice.active,
+.plan .freePeriod,
+.plan .yearlyPrice{
+    display: none;
+    transition: 0.5s ease-in-out;
+}
+.plan .freePeriod.active{
+    color: var(--Marine-blue);
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: 500;
+    display: block;
+}
+.plan .yearlyPrice.active{
+    display: block;
+}
+.durationDiv{
+    margin-top: 30px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--Magnolia);
+    border-radius: 10px;
+}
+.durationDiv .monthly{
+    color: var(--Marine-blue);
+}
+.monthly.active{
+    color: var(--Cool-gray);
+}
+.yearly.active{
+    color: var(--Marine-blue);
+}
+.durationDiv p{
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
+.switch{
+    width: 35px;
+    padding: 3px;
+    background-color: var(--Marine-blue);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    transition: 0.8s ease-in-out;
+}
+.toogle {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: var(--White);
+    margin: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+.toogle.active {
+    transform: translateX(16px);
+}
+.stepOneBtn{
+  margin-left: auto;
+}
+.buttonsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 90px;
+    margin-bottom: 10px;
+}
+.buttonsDiv p{
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+.buttonsDiv p:hover{
+    color: var(--Marine-blue);
+    transition: 0.5s ease-in-out;
+}
+.buttonsDiv p:active{
+    transform: scale(1.1);
+}
+.buttonsDiv button{
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: var(--Marine-blue);
+    color: var(--White);
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+}
+.buttonsDiv button:hover{
+    background-color: var(--Pastel-blue);
+}
+.addonsDiv{
+    width: 100%;
+    margin-top: 30px;
+}
+.addon{
+    margin-top: 15px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    border: 1px solid var(--Light-gray);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.addon.active{
+    border-color: var(--Purplish-blue);
+    background-color: var(--Magnolia);
+}
+.addon:hover{
+    border-color: var(--Purplish-blue);
+    transition: 0.5s ease-in-out;
+}
+.addon input{
+    pointer-events: none;
+}
+.stepContainer:nth-child(3) input{
+    width: unset;
+}
+.productDiv{
+    margin-left: 25px;
+}
+.productDiv h4{
+    color: var(--Marine-blue);
+    margin: 0;
+}
+.productDiv p{
+    margin-top: 4px;
+}
+.addon .price{
+    margin-left: auto;
+    color: var(--Purplish-blue);
+}
+.chosenAddons{
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--Light-gray);
+    border-radius: 10px;
+    padding-bottom: 0;
+}
+.chosenDurationDiv,
+.chosenAdds,
+.totalDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.additionals:last-child,
+.chosenAdds:last-child{
+    padding-bottom: 10px;
+}
+.chosenDurationDiv{
+    border-bottom: 1px solid var(--Cool-gray);
+    padding-bottom: 20px;
+}
+.chosenDurationDiv .subs{
+    gap: 5px;
+}
+.subs a{
+    margin-top: 20px;
+    color: var(--Cool-gray);
+}
+.subs a:hover{
+    color: var(--Purplish-blue);
+    transition: 0.5s ease-in-out;
+}
+.subs h5{
+    color: var(--Marine-blue);
+    padding-bottom: 5px;
+}
+.chosenDurationDiv p{
+    color: var(--Marine-blue);
+    font-weight: 700;
+}
+.chosenAdds{
+    margin-top: 10px;
+}
+.chosenAdds .addonPrice{
+    color: black;
+}
+.totalDiv{
+    padding: 15px;
+    margin: 0;
+}
+.totalDiv .total{
+    font-size: 18px;
+    color: var(--Purplish-blue);
+    font-weight: 700;
+}
+.stepContainer:nth-child(4){
+    button{
+        background-color: var(--Purplish-blue);
+    }
+}
+.formContainer{
+  width: 100%;
+}
+.thankYouContainer{
+    width: 100%;
+    padding: 30px 75px 15px 90px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 100;
+}
+.thankYouContainer.active{
+    display: flex;
+    animation: showConfirmation 0.5s ease-in-out;
+}
+@keyframes showConfirmation {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.thankYou{
+    text-align: center;
+    padding: 150px 0;
+}
+.thankYou img{
+    height: 60px;
+    width: 60px;
+}
+.thankYou h1{
+    margin-top: 30px;
+    color: var(--Marine-blue);
+    font-weight: 700;
+}
+.thankYou p{
+    color: var(--Cool-gray);
+    margin-top: 15px;
+    line-height: 1.5;
+}
+

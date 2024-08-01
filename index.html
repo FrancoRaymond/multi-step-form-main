@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="media-queries.css">
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+<body>
+  <section>
+    <div class="container">
+      <div class="leftContainer">
+        <div class="stepDiv">
+          <div class="stepNumber" data-num="1">1</div>
+          <div class="textDiv">
+            <p>STEP 1</p>
+            <h5>YOUR INFO</h5>
+          </div>
+        </div>
+        <div class="stepDiv">
+          <div class="stepNumber" data-num="2">2</div>
+          <div class="textDiv">
+            <p>STEP 2</p>
+            <h5>SELECT PLAN</h5>
+          </div>
+        </div>
+        <div class="stepDiv">
+          <div class="stepNumber" data-num="3">3</div>
+          <div class="textDiv">
+            <p>STEP 3</p>
+            <h5>ADD-ONS</h5>
+          </div>
+        </div>
+        <div class="stepDiv">
+          <div class="stepNumber" data-num="4">4</div>
+          <div class="textDiv">
+            <p>STEP 4</p>
+            <h5>SUMMARY</h5>
+          </div>
+        </div>
+      </div>
+      <div class="formContainer">
+        <form action="" id="form">
+          <div class="stepContainer" id="step1" data-num="1">
+            <h1>Personal info</h1>
+            <p> Please provide your name, email address, and phone number.</p>
+            <div class="stepOneLabels">
+              <label for="name">Name : <br>
+                <span class="errorMessage">This field is required</span>
+                <input type="text" name="name" id="name" placeholder="e.g. Stephen King" autocomplete="name">
+              </label>
+              <label for="email">Email Address : <br>
+                <span class="errorMessage">This field is required</span>
+                <input type="email" name="email" id="email"  placeholder="e.g. stephenking@lorem.com" autocomplete="email">
+              </label>
+              <label for="phoneNumber">Phone Number : <br>
+                <span class="errorMessage">This field is required</span>
+                <input type="number" name="PhoneNumber" id="phoneNumber" maxlength="10"  placeholder="e.g. +1 234 567 890" autocomplete="tel-local">
+              </label>
+            </div>
+            <div class="buttonsDiv">
+              <button class="stepBtns stepOneBtn" type="button">Next step</button>
+            </div>
+          </div>
+
+          <div class="stepContainer" data-num="2" id="step2">
+            <div class="step2Header">
+              <h1>Select your plan</h1>
+              <p>You have the option of monthly or yearly billing.</p>
+              <div class="errorPopUp">
+                <p>Please choose a plan before proceeding.</p>
+              </div>
+            </div>
+            <div class="plansDiv">
+              <div class="plan" id="arcade">
+                <input type="radio" name="plan" id="arcadeCheckbox" data-name="Arcade" value="9">
+                <img src="assets/images/icon-arcade.svg" alt="arcade icon">
+                <div class="typeAndPriceDiv">
+                  <h4>Arcade</h4>
+                  <p class="monthlyPrice">$<span>9</span>/mo</p>
+                  <p class="yearlyPrice">$<span>90</span>/yr</p>
+                  <p class="freePeriod">2 months free</p>
+                </div>
+              </div>
+              <div class="plan" id="advanced">
+                <input type="radio" name="plan" id="advancedCheckbox" data-name="Advanced" value="12">
+                <img src="assets/images/icon-advanced.svg" alt="advanced icon">
+                <div class="typeAndPriceDiv">
+                  <h4>Advanced</h4>
+                  <p class="monthlyPrice">$<span>12</span>/mo</p>
+                  <p class="yearlyPrice">$<span>120</span>/yr</p>
+                  <p class="freePeriod">2 months free</p>
+                </div>
+              </div>
+              <div class="plan" id="pro">
+                <input type="radio" name="plan" id="proCheckbox" data-name="Pro" value="15">
+                <img src="assets/images/icon-pro.svg" alt="Pro icon">
+                <div class="typeAndPriceDiv">
+                  <h4>Pro</h4>
+                  <p class="monthlyPrice">$<span>15</span>/mo</p>
+                  <p class="yearlyPrice">$<span>150</span>/yr</p>
+                  <p class="freePeriod">2 months free</p>
+                </div>
+              </div>
+            </div>
+            <div class="durationDiv">
+              <p class="monthly">Monthly</p>
+              <div class="switch">
+                <div class="toogle"></div>
+              </div>
+              <p class="yearly">Yearly</p>
+            </div>
+            <div class="buttonsDiv">
+              <p class="goBack" >Go back</p>
+              <button class="stepBtns stepTwo" type="button">Next step</button>
+            </div>
+          </div>
+
+          <div class="stepContainer" data-num="3" id="step3">
+            <h1>Pick add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+            <div class="addonsDiv">
+              <div class="addon">
+                <input type="checkbox" name="Online Services" id="onlineServices" value="1">
+                <div class="productDiv">
+                  <h4>Online service</h4>
+                  <p>Access to multiplayer games</p>
+                </div>
+                <p class="price">+$<span class="addonValue" data-value='1'></span>/<span class="duration">mo</span></p>
+              </div>
+              <div class="addon">
+                <input type="checkbox" name="Larger Storage" id="largerStorage" value="2">
+                <div class="productDiv">
+                  <h4>Larger storage</h4>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+                <p class="price">+$<span class="addonValue same" data-value='2'></span>/<span class="duration">mo</span></p>
+              </div>
+              <div class="addon">
+                <input type="checkbox" name="Customizable Profile" id="customizableProfile" value="2">
+                <div class="productDiv">
+                  <h4>Customizable Profile</h4>
+                  <p>Custom theme on your profile</p>
+                </div>
+                <p class="price">+$<span class="addonValue same" data-value='2'></span>/<span class="duration">mo</span></p>
+              </div>
+            </div>
+            <div class="buttonsDiv">
+              <p class="goBack">Go back</p>
+              <button class="stepBtns stepThree" type="button">Next step</button>
+            </div>
+          </div>
+
+          <div class="stepContainer" data-num="4" id="step4">
+            <h1>Finishing up</h1>
+            <p>Double-check everything looks OK before confirming.</p>
+            <div class="chosenAddons">
+              <div class="chosenDurationDiv">
+                <div class="subs">
+                  <h5><span class="finalPlan">Arcade</span>(<span class="chosenDuration">Monthly</span>)</h5>
+                  <a href="#">Change</a>
+                </div>
+                <p>$<span class="finalPlanPrice">9</span>/<span class="duration">mo</span></p>
+              </div>
+              <div class="additionals"></div>
+            </div>
+            <div class="totalDiv">
+              <p>Total(per-month)</p>
+              <p class="total">$<span class="planAndAddonsTotal"></span>/<span class="duration"></span></p>
+            </div>
+            <div class="buttonsDiv">
+              <p class="goBack back4">Go back</p>
+              <button type="submit">Confirm</button>
+            </div>
+          </div>
+        </form>
+        <div class="thankYouContainer">
+        <div class="thankYou">
+          <img src="assets/images/icon-thank-you.svg" alt="thank you icon">
+          <h1>Thank you!</h1>
+          <p>Thanks for confirming your subscription! We hope you have fun
+            using our platform. If you ever need support, please feel free
+            to email us at support@loremgaming.com.
+          </p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
