@@ -21,10 +21,10 @@ function updateSteps() {
 
     stepContainer.forEach(stepContainer => {
         if (stepContainer.dataset.num == divNumber) {
-            stepContainer.style.display = 'block';
+            stepContainer.classList.add('active');
             
         } else {
-            stepContainer.style.display = 'none';
+            stepContainer.classList.remove('active');
         }
     });
 }
@@ -62,7 +62,7 @@ function areStepOneInputsFilled() {
     const step1Inputs = step1.querySelectorAll('input');
     let isValid = true;
 
-    if (step1.style.display === "block") {
+    if (step1.classList.contains('active')) {
         step1Inputs.forEach(input => {
             const errorMessage = input.parentElement.querySelector('.errorMessage');
             let inputValid = true;
@@ -81,10 +81,10 @@ function areStepOneInputsFilled() {
                 }
             }
             if (inputValid) {
-                errorMessage.style.display = 'none';
-            } else {
-                errorMessage.style.display = 'flex';
+                errorMessage.classList.remove('active');
+            } else {  
                 isValid = false;
+                errorMessage.classList.add('active');
             }
         });
 
@@ -149,6 +149,7 @@ let stepTwoTotal
 const addonValue = document.querySelectorAll(".addonValue")
 const duration = document.querySelectorAll('.duration')
 const errorPopUp = document.querySelector('.errorPopUp')
+const totalDuration = document.querySelector('.totalDuration')
 
 
 function areStepTwoOptionsSelected() {
@@ -186,6 +187,9 @@ function areStepTwoOptionsSelected() {
     duration.forEach(item => {
         item.innerText = isActive ? 'yr' : 'mo';
     });
+    
+        totalDuration.innerText = isActive ? 'year' : 'month'
+    
 
     document.querySelector('.finalPlan').innerText = chosenPlan;
     document.querySelector('.chosenDuration').innerText = term;
@@ -220,7 +224,7 @@ function selectedAddons(){
     }
     step3Inputs.forEach(input =>{
         const plusSign = document.createTextNode('+');
-        const dollaSign = document.createTextNode('$');
+        const dollarSign = document.createTextNode('$');
         const fowardSlash = document.createTextNode('/');
 
         if(input.checked){
@@ -249,7 +253,7 @@ function selectedAddons(){
             addonFirstSpan.innerText = input.value
             addonsTotal += parseInt(input.value)
         }
-        addonAmount.append(plusSign,dollaSign,addonFirstSpan,fowardSlash,addonSecondSpan)
+        addonAmount.append(plusSign,dollarSign,addonFirstSpan,fowardSlash,addonSecondSpan)
         addonDiv.append(addonName, addonAmount)
         chosenAddons.append(addonDiv)
         }
@@ -265,6 +269,7 @@ function selectedAddons(){
 //------------- STEP 4 ----------------
 
 const changeSubscribtionBtn = document.querySelector('.subs a')
+
 changeSubscribtionBtn.addEventListener('click', function(){
     divNumber -= 2;
     updateSteps();

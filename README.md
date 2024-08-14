@@ -26,4 +26,3 @@ Users are able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-
